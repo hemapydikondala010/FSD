@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS Selector Forms Demo</title>
+    <style>
+        /* General styles */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        /* 1. Simple Selectors */
+
+        /* ID selector */
+        #myId {
+            background-color: bisque;
+            padding: 5px;
+            display: inline-block;
+            font-family: serif;
+        }
+
+        /* Class selector */
+        .myClass {
+            color: blue;
+            display: inline-block;
+            font-family: serif;
+            margin-left: 10px;
+        }
+
+        /* Group selector */
+        h3, h4 {
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+
+        /* 2. Combinator selectors */
+
+        /* Descendant selector */
+        div p.descendant {
+            background-color: lavenderblush;
+            color: purple;
+            padding: 10px;
+            width: 250px;
+            margin: 0 auto 10px auto;
+            text-align: left;
+        }
+
+        /* Child selector */
+        div > p.child {
+            font-weight: bold;
+            background-color: plum;
+            color: black;
+            padding: 10px;
+            width: 250px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+        }
+
+        /* Adjacent sibling selector */
+        h3 + p.adjacent {
+            color: darkorange;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        /* General sibling selector */
+        h3 ~ p.general {
+            font-style: italic;
+            margin: 5px 0 20px 0;
+        }
+
+        /* 3. Pseudo-class selector */
+
+        a:hover {
+            color: blue;
+        }
+
+        /* 4. Pseudo-element selector */
+
+        p.pseudo-element::first-letter {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* 5. Attribute selectors */
+
+        input[type="text"] {
+            border: 1px solid black;
+            padding: 4px 6px;
+            margin-left: 5px;
+        }
+
+        input[type="email"] {
+            border: 1px solid lightgreen;
+            padding: 4px 6px;
+            margin-left: 5px;
+        }
+
+        /* Styling label + input pairs inline */
+        form {
+            margin-top: 10px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        form div {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Selector Forms Demo</h1>
+
+    <!-- Simple selectors -->
+    <p id="myId">This paragraph uses ID selector (#myId).</p>
+    <p class="myClass">This paragraph uses Class selector (.myClass).</p>
+
+    <!-- Group selector -->
+    <h3>Heading 3 - group selector example</h3>
+    <h4>Heading 4 - group selector example</h4>
+
+    <!-- Combinator selectors -->
+    <div>
+        <p class="descendant">This paragraph is a descendant of div.</p>
+        <p class="child">This paragraph is a direct child of div.</p>
+    </div>
+
+    <h3>Heading 3 for sibling example</h3>
+    <p class="adjacent">Adjacent sibling paragraph (orange).</p>
+    <p class="general">General sibling paragraph (italic).</p>
+
+    <!-- Pseudo-class -->
+    <a href="#">Hover over this link to see pseudo-class effect</a>
+
+    <!-- Pseudo-element -->
+    <p class="pseudo-element">
+        This paragraph demonstrates the <em>first letter</em> pseudo-element.
+    </p>
+
+    <!-- Attribute selectors -->
+    <form>
+        <div>
+            <label for="name">Name:</label>
+            <input id="name" type="text" placeholder="Enter your name" />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="Enter your email" />
+        </div>
+    </form>
+
+</body>
+</html>
