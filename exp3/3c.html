@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Style Levels</title>
+
+    <!-- Internal Style -->
+    <style>
+        /* Internal Style */
+        /* Selector: h2 */
+        h2 {
+            color: blue;                /* Property: color, Value: blue */
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+        }
+
+        /* Simulating External Style */
+        /* Selector: .external-style */
+        .external-style {
+            color: green;               /* Property: color, Value: green */
+            background-color: lightyellow;
+            font-size: 20px;
+            padding: 10px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Inline Style -->
+    <h1 style="color: red; font-size: 32px;">Inline Styled Heading</h1>
+    <!-- Inline Style: Selector = h1, Property = color, Value = red -->
+
+    <!-- Internal Style -->
+    <h2>Internal Styled Subheading</h2>
+    <!-- Internal style applies to this <h2> -->
+
+    <!-- External Style simulated via internal <style> tag -->
+    <p class="external-style">This paragraph uses simulated external CSS style (class selector).</p>
+    <!-- Class selector used: .external-style -->
+
+</body>
+</html>
