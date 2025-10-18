@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armstrong Number Checker</title>
+</head>
+<body>
+  <script>
+    // Prompt user for a number
+    let num = prompt("Enter a number:");
+    num = Number(num);
+
+    // Convert number to string to get digits and count
+    let numStr = num.toString();
+    let numDigits = numStr.length;
+
+    let sum = 0;
+
+    // Calculate sum of each digit raised to the power of number of digits
+    for (let i = 0; i < numDigits; i++) {
+      let digit = parseInt(numStr[i]);
+      sum += Math.pow(digit, numDigits);
+    }
+
+    // Check if sum equals the original number
+    if (sum === num) {
+      alert(num + " is an Armstrong number.");
+    } else {
+      alert(num + " is NOT an Armstrong number.");
+    }
+  </script>
+</body>
+</html>

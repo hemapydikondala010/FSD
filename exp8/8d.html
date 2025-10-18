@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loops with Object Data</title>
+</head>
+<body>
+  <h2>Print Object Data Using Different Loops</h2>
+
+  <h3>Using for-in loop:</h3>
+  <div id="for-in"></div>
+
+  <h3>Using forEach loop:</h3>
+  <div id="forEach"></div>
+
+  <h3>Using for-of loop:</h3>
+  <div id="for-of"></div>
+
+  <script>
+    const person = {
+      name: "Alice",
+      age: 30,
+      city: "New York"
+    };
+
+    // 1. for-in loop (loops over keys in object)
+    let forInOutput = "";
+    for (let key in person) {
+      forInOutput += `${key}: ${person[key]}<br>`;
+      console.log("for-in:", key, person[key]);
+    }
+    document.getElementById("for-in").innerHTML = forInOutput;
+
+    // 2. forEach loop - we can't use directly on object, so convert keys or entries to array
+    let forEachOutput = "";
+    Object.entries(person).forEach(([key, value]) => {
+      forEachOutput += `${key}: ${value}<br>`;
+      console.log("forEach:", key, value);
+    });
+    document.getElementById("forEach").innerHTML = forEachOutput;
+
+    // 3. for-of loop - use on entries array
+    let forOfOutput = "";
+    for (const [key, value] of Object.entries(person)) {
+      forOfOutput += `${key}: ${value}<br>`;
+      console.log("for-of:", key, value);
+    }
+    document.getElementById("for-of").innerHTML = forOfOutput;
+  </script>
+</body>
+</html>

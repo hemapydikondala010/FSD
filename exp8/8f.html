@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Denomination Calculator</title>
+</head>
+<body>
+  <script>
+    // Prompt the user to enter the amount
+    let amount = parseInt(prompt("Enter the amount deposited:"));
+
+    if (isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid positive number");
+    } else {
+      // Denominations array
+      const denominations = [100, 50, 20, 10, 5, 2, 1];
+      let result = [];
+
+      for (let denom of denominations) {
+        let count = Math.floor(amount / denom);
+        if (count > 0) {
+          result.push(count + " - " + denom + "’s");
+          amount = amount % denom;
+        }
+      }
+
+      alert("Denominations: " + result.join(", "));
+    }
+  </script>
+</body>
+</html>

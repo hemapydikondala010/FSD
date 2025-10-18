@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Find Larger Number</title>
+</head>
+<body>
+  <script>
+    // Prompt the user to enter three integers
+    let num1 = parseInt(prompt("Enter the first integer:"));
+    let num2 = parseInt(prompt("Enter the second integer:"));
+    let num3 = parseInt(prompt("Enter the third integer:"));
+
+    // Check if all three numbers are equal
+    if (num1 === num2 && num2 === num3) {
+      alert("EQUAL NUMBERS");
+    } else {
+      // Find the largest number among the three
+      let largest = num1;
+
+      if (num2 > largest) {
+        largest = num2;
+      }
+      if (num3 > largest) {
+        largest = num3;
+      }
+
+      alert(largest + " LARGER NUMBER");
+    }
+  </script>
+</body>
+</html>
