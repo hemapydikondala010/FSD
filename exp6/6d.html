@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voter Eligibility</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    caption {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Voter Eligibility Check</h1>
+  <button onclick="getVoterInfo()">Enter Voter Details</button>
+
+  <div id="result"></div>
+
+  <script>
+    function getVoterInfo() {
+      const name = prompt("Please enter your name:");
+      if (!name) {
+        alert("Name cannot be empty!");
+        return;
+      }
+
+      const ageInput = prompt("Please enter your age:");
+      const age = Number(ageInput);
+
+      if (!ageInput || isNaN(age) || age <= 0) {
+        alert("Please enter a valid age!");
+        return;
+      }
+
+      const canVote = age >= 18 ? "Yes, you can vote." : "No, you cannot vote yet.";
+
+      const tableHTML = `
+        <table>
+          <caption>Voter Information</caption>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Can Vote?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${name}</td>
+              <td>${age}</td>
+              <td>${canVote}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+
+      document.getElementById("result").innerHTML = tableHTML;
+    }
+  </script>
+
+</body>
+</html>

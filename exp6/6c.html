@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Different Ways to Take Input in JavaScript</title>
+</head>
+<body>
+
+  <h1>Different Ways to Take Input</h1>
+
+  <!-- 1. Input box -->
+  <label for="inputText">Enter your name (input box): </label>
+  <input type="text" id="inputText" placeholder="Your name" />
+  <button onclick="showInputBox()">Submit</button>
+  <p id="outputInputBox"></p>
+
+  <hr />
+
+  <!-- 2. prompt() -->
+  <button onclick="showPrompt()">Click to enter your age (prompt)</button>
+  <p id="outputPrompt"></p>
+
+  <hr />
+
+  <!-- 3. textarea -->
+  <label for="textarea">Write something (textarea):</label><br />
+  <textarea id="textarea" rows="4" cols="30" placeholder="Type here..."></textarea>
+  <br />
+  <button onclick="showTextarea()">Submit</button>
+  <p id="outputTextarea"></p>
+
+  <hr />
+
+  <!-- 4. select dropdown -->
+  <label for="colorSelect">Choose your favorite color:</label>
+  <select id="colorSelect">
+    <option value="">--Select--</option>
+    <option value="Red">Red</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+    <option value="Yellow">Yellow</option>
+  </select>
+  <button onclick="showSelect()">Submit</button>
+  <p id="outputSelect"></p>
+
+  <script>
+    function showInputBox() {
+      const name = document.getElementById('inputText').value;
+      document.getElementById('outputInputBox').textContent = name ? `Hello, ${name}!` : 'Please enter your name.';
+    }
+
+    function showPrompt() {
+      const age = prompt("Please enter your age:");
+      document.getElementById('outputPrompt').textContent = age ? `You are ${age} years old.` : 'You cancelled the prompt.';
+    }
+
+    function showTextarea() {
+      const text = document.getElementById('textarea').value;
+      document.getElementById('outputTextarea').textContent = text ? `You wrote: "${text}"` : 'Textarea is empty.';
+    }
+
+    function showSelect() {
+      const color = document.getElementById('colorSelect').value;
+      document.getElementById('outputSelect').textContent = color ? `Your favorite color is ${color}.` : 'Please select a color.';
+    }
+  </script>
+
+</body>
+</html>

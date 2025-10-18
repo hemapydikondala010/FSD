@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Different Ways to Display Output in JavaScript</title>
+</head>
+<body>
+
+  <h1>Different Ways to Display Output</h1>
+
+  <button onclick="showAlert()">Show alert()</button>
+  <button onclick="showDocumentWrite()">Show document.write()</button>
+  <button onclick="showInnerHTML()">Show innerHTML</button>
+  <button onclick="showConsoleLog()">Show console.log()</button>
+
+  <p id="outputArea" style="margin-top: 20px; font-weight: bold;"></p>
+
+  <script>
+    function showAlert() {
+      alert("This is an alert box!");
+    }
+
+    function showDocumentWrite() {
+      // Warning: This will overwrite the whole document content
+      document.write("This output is from document.write()");
+    }
+
+    function showInnerHTML() {
+      document.getElementById("outputArea").innerHTML = "Output displayed using innerHTML.";
+    }
+
+    function showConsoleLog() {
+      console.log("This message is logged to the browser console.");
+      alert("Check the browser console for the message!");
+    }
+  </script>
+
+</body>
+</html>
