@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document Object Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #info {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Document Object Properties and Methods</h1>
+
+  <button onclick="showDocumentInfo()">Show Document Info</button>
+  <button onclick="changeTitle()">Change Document Title</button>
+  <button onclick="addParagraph()">Add a New Paragraph</button>
+
+  <div id="info"></div>
+
+  <script>
+    function showDocumentInfo() {
+      const infoDiv = document.getElementById('info');
+      
+      // Access some document properties
+      const title = document.title;
+      const url = document.URL;
+      const domain = document.domain;
+      const lastModified = document.lastModified;
+
+      // Display the info in the div
+      infoDiv.innerHTML = `
+        <h3>Document Properties:</h3>
+        <ul>
+          <li><strong>Title:</strong> ${title}</li>
+          <li><strong>URL:</strong> ${url}</li>
+          <li><strong>Domain:</strong> ${domain}</li>
+          <li><strong>Last Modified:</strong> ${lastModified}</li>
+        </ul>
+      `;
+    }
+
+    function changeTitle() {
+      // Change the title of the document dynamically
+      document.title = "Title Changed at " + new Date().toLocaleTimeString();
+      alert("Document title has been changed!");
+    }
+
+    function addParagraph() {
+      // Create a new paragraph element and add it to the body
+      const p = document.createElement('p');
+      p.textContent = "This paragraph was added dynamically using document.createElement()!";
+      p.style.color = "blue";
+      p.style.fontWeight = "bold";
+
+      document.body.appendChild(p);
+    }
+  </script>
+
+</body>
+</html>

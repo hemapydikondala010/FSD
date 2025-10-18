@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript Array Properties and Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Array Object Properties and Methods</h1>
+
+  <button onclick="showInitialArray()">Show Initial Array</button><br/>
+  <button onclick="pushElement()">Push Element (add at end)</button><br/>
+  <button onclick="popElement()">Pop Element (remove from end)</button><br/>
+  <button onclick="unshiftElement()">Unshift Element (add at start)</button><br/>
+  <button onclick="shiftElement()">Shift Element (remove from start)</button><br/>
+  <button onclick="sliceArray()">Slice Array</button><br/>
+  <button onclick="spliceArray()">Splice Array</button><br/>
+  <button onclick="indexOfElement()">Index Of Element</button><br/>
+  <button onclick="joinArray()">Join Array</button><br/>
+
+  <h2>Output:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Initialize an array
+    let fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+    function showInitialArray() {
+      document.getElementById('output').textContent = `Initial array:\n${JSON.stringify(fruits)}\nLength: ${fruits.length}`;
+    }
+
+    function pushElement() {
+      fruits.push("Fig");
+      document.getElementById('output').textContent = `After push("Fig"):\n${JSON.stringify(fruits)}\nLength: ${fruits.length}`;
+    }
+
+    function popElement() {
+      const popped = fruits.pop();
+      document.getElementById('output').textContent = `After pop():\nRemoved element: ${popped}\nArray: ${JSON.stringify(fruits)}\nLength: ${fruits.length}`;
+    }
+
+    function unshiftElement() {
+      fruits.unshift("Grapes");
+      document.getElementById('output').textContent = `After unshift("Grapes"):\n${JSON.stringify(fruits)}\nLength: ${fruits.length}`;
+    }
+
+    function shiftElement() {
+      const shifted = fruits.shift();
+      document.getElementById('output').textContent = `After shift():\nRemoved element: ${shifted}\nArray: ${JSON.stringify(fruits)}\nLength: ${fruits.length}`;
+    }
+
+    function sliceArray() {
+      const sliced = fruits.slice(1, 4);
+      document.getElementById('output').textContent = `After slice(1, 4):\nSliced part: ${JSON.stringify(sliced)}\nOriginal array unchanged:\n${JSON.stringify(fruits)}`;
+    }
+
+    function spliceArray() {
+      // Remove 2 elements starting from index 2, and add 'Kiwi' and 'Lemon'
+      const removed = fruits.splice(2, 2, "Kiwi", "Lemon");
+      document.getElementById('output').textContent = `After splice(2, 2, "Kiwi", "Lemon"):\nRemoved elements: ${JSON.stringify(removed)}\nModified array:\n${JSON.stringify(fruits)}`;
+    }
+
+    function indexOfElement() {
+      const index = fruits.indexOf("Kiwi");
+      document.getElementById('output').textContent = `Index of "Kiwi" in array: ${index}`;
+    }
+
+    function joinArray() {
+      const joined = fruits.join(" - ");
+      document.getElementById('output').textContent = `Array joined with " - ":\n${joined}`;
+    }
+  </script>
+
+</body>
+</html>

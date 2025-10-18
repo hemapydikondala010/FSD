@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript Math Object Properties and Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Math Object Properties and Methods</h1>
+
+  <button onclick="showMathConstants()">Show Math Constants</button><br />
+  <button onclick="demonstrateRound()">Demonstrate Rounding Methods</button><br />
+  <button onclick="calculateSquareRoot()">Calculate Square Root</button><br />
+  <button onclick="calculatePower()">Calculate Power</button><br />
+  <button onclick="calculateAbsolute()">Calculate Absolute Value</button><br />
+  <button onclick="showRandomNumber()">Show Random Number</button><br />
+  <button onclick="showMaxMin()">Show Max and Min</button><br />
+
+  <h2>Output:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    function showMathConstants() {
+      const pi = Math.PI;
+      const e = Math.E;
+      document.getElementById('output').textContent = `Math.PI: ${pi}\nMath.E: ${e}`;
+    }
+
+    function demonstrateRound() {
+      const num = 4.7;
+      const round = Math.round(num);
+      const floor = Math.floor(num);
+      const ceil = Math.ceil(num);
+      document.getElementById('output').textContent =
+        `Number: ${num}\nMath.round(): ${round}\nMath.floor(): ${floor}\nMath.ceil(): ${ceil}`;
+    }
+
+    function calculateSquareRoot() {
+      const num = 16;
+      const sqrt = Math.sqrt(num);
+      document.getElementById('output').textContent = `Square root of ${num} is ${sqrt}`;
+    }
+
+    function calculatePower() {
+      const base = 3;
+      const exponent = 4;
+      const power = Math.pow(base, exponent);
+      document.getElementById('output').textContent = `${base} raised to the power ${exponent} is ${power}`;
+    }
+
+    function calculateAbsolute() {
+      const num = -25;
+      const absVal = Math.abs(num);
+      document.getElementById('output').textContent = `Absolute value of ${num} is ${absVal}`;
+    }
+
+    function showRandomNumber() {
+      // Random number between 0 and 1
+      const rand = Math.random();
+      // Random number between 1 and 100
+      const rand100 = Math.floor(Math.random() * 100) + 1;
+      document.getElementById('output').textContent = `Random number between 0 and 1: ${rand}\nRandom integer between 1 and 100: ${rand100}`;
+    }
+
+    function showMaxMin() {
+      const numbers = [10, 5, 20, 15, 30];
+      const max = Math.max(...numbers);
+      const min = Math.min(...numbers);
+      document.getElementById('output').textContent = `Numbers: ${numbers.join(', ')}\nMax: ${max}\nMin: ${min}`;
+    }
+  </script>
+
+</body>
+</html>

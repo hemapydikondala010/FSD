@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Window Object Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #output {
+      margin-top: 20px;
+      background: #f0f0f0;
+      padding: 15px;
+      border: 1px solid #ccc;
+      max-width: 600px;
+    }
+    button {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Window Object Properties and Methods</h1>
+
+  <button onclick="showWindowSize()">Show Window Size</button><br />
+  <button onclick="showCurrentURL()">Show Current URL</button><br />
+  <button onclick="askUserConfirm()">Ask User (confirm)</button><br />
+  <button onclick="askUserPrompt()">Ask User (prompt)</button><br />
+  <button onclick="openNewWindow()">Open New Window</button>
+
+  <div id="output"></div>
+
+  <script>
+    function showWindowSize() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      document.getElementById('output').textContent = `Window size: ${width}px (width) x ${height}px (height)`;
+    }
+
+    function showCurrentURL() {
+      const url = window.location.href;
+      document.getElementById('output').textContent = `Current URL: ${url}`;
+    }
+
+    function askUserConfirm() {
+      const result = window.confirm("Do you like this example?");
+      document.getElementById('output').textContent = result 
+        ? "User clicked OK." 
+        : "User clicked Cancel.";
+    }
+
+    function askUserPrompt() {
+      const name = window.prompt("Please enter your name:", "Guest");
+      if (name === null) {
+        document.getElementById('output').textContent = "User cancelled the prompt.";
+      } else if (name.trim() === "") {
+        document.getElementById('output').textContent = "No name entered.";
+      } else {
+        document.getElementById('output').textContent = `Hello, ${name}!`;
+      }
+    }
+
+    let newWindow = null;
+
+    function openNewWindow() {
+      // Open a small new window/tab
+      newWindow = window.open("https://www.example.com", "_blank", "width=400,height=300");
+      if (newWindow) {
+        document.getElementById('output').textContent = "New window opened. It will close automatically in 5 seconds.";
+        setTimeout(() => {
+          newWindow.close();
+          document.getElementById('output').textContent = "New window closed.";
+        }, 5000);
+      } else {
+        document.getElementById('output').textContent = "Popup blocked! Please allow popups for this site.";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript String Properties and Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript String Object Properties and Methods</h1>
+
+  <button onclick="showLength()">Show Length</button><br/>
+  <button onclick="toUpper()">To Upper Case</button><br/>
+  <button onclick="toLower()">To Lower Case</button><br/>
+  <button onclick="indexOfChar()">Index Of Character</button><br/>
+  <button onclick="sliceString()">Slice String</button><br/>
+  <button onclick="substringString()">Substring</button><br/>
+  <button onclick="replaceString()">Replace</button><br/>
+  <button onclick="trimString()">Trim</button><br/>
+  <button onclick="splitString()">Split</button><br/>
+  <button onclick="charAtString()">Char At</button><br/>
+
+  <h2>Output:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    const str = "  Hello, JavaScript World!  ";
+
+    function showLength() {
+      document.getElementById('output').textContent = `String: "${str}"\nLength: ${str.length}`;
+    }
+
+    function toUpper() {
+      const upper = str.toUpperCase();
+      document.getElementById('output').textContent = `Original: "${str}"\nTo Upper Case: "${upper}"`;
+    }
+
+    function toLower() {
+      const lower = str.toLowerCase();
+      document.getElementById('output').textContent = `Original: "${str}"\nTo Lower Case: "${lower}"`;
+    }
+
+    function indexOfChar() {
+      const index = str.indexOf('J');
+      document.getElementById('output').textContent = `Index of 'J' in string: ${index}`;
+    }
+
+    function sliceString() {
+      // slice from index 2 to 14 (not including 14)
+      const sliced = str.slice(2, 14);
+      document.getElementById('output').textContent = `Slice(2, 14): "${sliced}"`;
+    }
+
+    function substringString() {
+      // substring from index 7 to 17
+      const substring = str.substring(7, 17);
+      document.getElementById('output').textContent = `Substring(7, 17): "${substring}"`;
+    }
+
+    function replaceString() {
+      const replaced = str.replace("JavaScript", "JS");
+      document.getElementById('output').textContent = `Replace "JavaScript" with "JS": "${replaced}"`;
+    }
+
+    function trimString() {
+      const trimmed = str.trim();
+      document.getElementById('output').textContent = `Original: "${str}"\nTrimmed: "${trimmed}"`;
+    }
+
+    function splitString() {
+      // Split by space
+      const parts = str.trim().split(" ");
+      document.getElementById('output').textContent = `Split by space:\n${JSON.stringify(parts, null, 2)}`;
+    }
+
+    function charAtString() {
+      const char = str.charAt(10);
+      document.getElementById('output').textContent = `Character at index 10: "${char}"`;
+    }
+  </script>
+
+</body>
+</html>

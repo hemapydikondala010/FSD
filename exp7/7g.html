@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript Date Object Properties and Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Date Object Properties and Methods</h1>
+
+  <button onclick="showCurrentDate()">Show Current Date and Time</button><br />
+  <button onclick="getDateComponents()">Get Date Components</button><br />
+  <button onclick="setDateComponents()">Set Date Components</button><br />
+  <button onclick="formatDate()">Format Date String</button><br />
+
+  <h2>Output:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    let myDate = new Date();
+
+    function showCurrentDate() {
+      myDate = new Date(); // refresh to current
+      document.getElementById('output').textContent = `Current date and time:\n${myDate.toString()}`;
+    }
+
+    function getDateComponents() {
+      let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      let year = myDate.getFullYear();
+      let month = myDate.getMonth() + 1; // months 0-11
+      let date = myDate.getDate();
+      let day = days[myDate.getDay()];
+      let hours = myDate.getHours();
+      let minutes = myDate.getMinutes();
+      let seconds = myDate.getSeconds();
+      document.getElementById('output').textContent = 
+        `Year: ${year}\nMonth: ${month}\nDate: ${date}\nDay: ${day}\n` + 
+        `Hours: ${hours}\nMinutes: ${minutes}\nSeconds: ${seconds}`;
+    }
+
+    function setDateComponents() {
+      // Example: Set date to 25 Dec 2025, 10:30:00
+      myDate.setFullYear(2025);
+      myDate.setMonth(11); // December (0 based)
+      myDate.setDate(25);
+      myDate.setHours(10);
+      myDate.setMinutes(30);
+      myDate.setSeconds(0);
+      document.getElementById('output').textContent = `Date set to:\n${myDate.toString()}`;
+    }
+
+    function formatDate() {
+      // Format as YYYY-MM-DD HH:MM:SS
+      const pad = (n) => n.toString().padStart(2, '0');
+      let year = myDate.getFullYear();
+      let month = pad(myDate.getMonth() + 1);
+      let date = pad(myDate.getDate());
+      let hours = pad(myDate.getHours());
+      let minutes = pad(myDate.getMinutes());
+      let seconds = pad(myDate.getSeconds());
+
+      const formatted = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+      document.getElementById('output').textContent = `Formatted date:\n${formatted}`;
+    }
+  </script>
+
+</body>
+</html>

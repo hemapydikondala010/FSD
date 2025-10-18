@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript RegExp Object Properties and Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript RegExp Object Properties and Methods</h1>
+
+  <p>Testing regex on the string: <code>"The quick brown fox jumps over the lazy dog."</code></p>
+
+  <button onclick="showRegexProperties()">Show Regex Properties</button><br />
+  <button onclick="testRegex()">Test Regex (test())</button><br />
+  <button onclick="execRegex()">Execute Regex (exec())</button><br />
+  <button onclick="matchString()">String.match()</button><br />
+  <button onclick="replaceString()">String.replace()</button><br />
+  <button onclick="searchString()">String.search()</button><br />
+  <button onclick="splitString()">String.split()</button><br />
+
+  <h2>Output:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    const str = "The quick brown fox jumps over the lazy dog.";
+    const regex = /o\w*/gi; // match 'o' followed by zero or more word characters, global and case-insensitive
+
+    function showRegexProperties() {
+      document.getElementById('output').textContent = 
+        `Regex source: ${regex.source}\nFlags: ${regex.flags}`;
+    }
+
+    function testRegex() {
+      const testResult = regex.test(str);
+      document.getElementById('output').textContent = `Test if pattern matches string: ${testResult}`;
+      // Note: Because regex is global, subsequent test() calls advance the lastIndex,
+      // so reset lastIndex for consistent behavior:
+      regex.lastIndex = 0;
+    }
+
+    function execRegex() {
+      let result = [];
+      let match;
+      regex.lastIndex = 0; // reset regex position
+      while ((match = regex.exec(str)) !== null) {
+        result.push(`Found "${match[0]}" at index ${match.index}`);
+      }
+      document.getElementById('output').textContent = result.length > 0 ? result.join('\n') : "No matches found";
+    }
+
+    function matchString() {
+      const matches = str.match(regex);
+      document.getElementById('output').textContent = matches ? `Matches found:\n${matches.join(', ')}` : "No matches found";
+    }
+
+    function replaceString() {
+      // Replace matched parts with uppercase version
+      const replaced = str.replace(regex, (match) => match.toUpperCase());
+      document.getElementById('output').textContent = `Original string:\n${str}\n\nAfter replace:\n${replaced}`;
+    }
+
+    function searchString() {
+      const position = str.search(regex);
+      document.getElementById('output').textContent = position !== -1 ? `First match position: ${position}` : "No match found";
+    }
+
+    function splitString() {
+      // Split string on each match of the regex pattern
+      const parts = str.split(regex);
+      document.getElementById('output').textContent = `Split string on regex pattern:\n${JSON.stringify(parts, null, 2)}`;
+    }
+  </script>
+
+</body>
+</html>

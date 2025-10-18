@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User-Defined Object in JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>User-Defined Object Example</h1>
+
+  <button onclick="showPerson()">Show Person Details</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    // Constructor function for Person object
+    function Person(firstName, lastName, age) {
+      // Properties
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this._age = age;  // underscore prefix to indicate "private" by convention
+
+      // Method
+      this.getFullName = function() {
+        return this.firstName + ' ' + this.lastName;
+      };
+
+      // Accessor (getter) for age
+      Object.defineProperty(this, 'age', {
+        get: function() {
+          return this._age;
+        },
+        set: function(newAge) {
+          if (newAge > 0 && newAge < 120) {
+            this._age = newAge;
+          } else {
+            alert('Please enter a valid age');
+          }
+        }
+      });
+    }
+
+    // Method added to Person prototype (better for memory efficiency)
+    Person.prototype.isAdult = function() {
+      return this._age >= 18;
+    };
+
+    // Create an instance of Person
+    const person1 = new Person('Alice', 'Johnson', 25);
+
+    function showPerson() {
+      let output = '';
+
+      output += `Full Name: ${person1.getFullName()}\n`;
+      output += `Age: ${person1.age}\n`;
+      output += `Is Adult: ${person1.isAdult() ? 'Yes' : 'No'}\n`;
+
+      // Demonstrate changing age using setter
+      output += '\nUpdating age to 17...\n';
+      person1.age = 17;
+      output += `Updated Age: ${person1.age}\n`;
+      output += `Is Adult Now: ${person1.isAdult() ? 'Yes' : 'No'}`;
+
+      document.getElementById('output').textContent = output;
+    }
+  </script>
+
+</body>
+</html>
